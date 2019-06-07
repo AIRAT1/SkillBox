@@ -1,5 +1,6 @@
 package de.android.ayrathairullin.myapplication;
 
+import android.support.v4.util.Consumer;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
@@ -34,9 +35,13 @@ public class MainActivity extends AppCompatActivity {
         questionText.setText("");
 
 //        String answer = "Ok";
-        String answer = AI.getAnswer(text);
+        AI.getAnswer(text, new Consumer<String>() {
+            @Override
+            public void accept(String answer) {
+                chatWindow.append("<< " + answer + "\n");
+            }
+        });
 
         chatWindow.append(">> " + text + "\n");
-        chatWindow.append("<< " + answer + "\n");
     }
 }

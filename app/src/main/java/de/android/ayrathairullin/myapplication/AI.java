@@ -26,7 +26,7 @@ public class AI {
 //            }
 //        }
 
-        Pattern cityPattern = Pattern.compile("погода в городе (\\p{L}+)", Pattern.CASE_INSENSITIVE);
+        Pattern cityPattern = Pattern.compile("погода (\\p{L}+)", Pattern.CASE_INSENSITIVE);
         Matcher matcher = cityPattern.matcher(s);
         if (matcher.find()) {
             cityName = matcher.group(1);
